@@ -56,7 +56,7 @@ router.get("/books", getBooks);
  *         description: Validation error
  *       500:
  *         description: Internal server error
- *          
+ *
  */
 router.post("/books", validateBookForm, createBook);
 

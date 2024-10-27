@@ -163,7 +163,7 @@ describe("GET /authors/:idAuthor/books", () => {
     await createdAuthor.addBook(createdBook);
 
     const response = await request(app).get(
-      `/authors/${createdAuthor.id}/books`
+      `/authors/${createdAuthor.id}/books`,
     );
 
     expect(response.status).toBe(200);
@@ -187,7 +187,7 @@ describe("POST /authors/:idAuthor/books", () => {
       dob: new Date("1835-11-30"),
       image: "https://example.com/images/mark-twain.jpg",
     });
-  
+
     const response = await request(app)
       .post(`/authors/${createdAuthor.id}/books`)
       .send({
@@ -299,12 +299,12 @@ describe("DELETE /authors/:idAuthor/:idBook", () => {
     await createdAuthor.addBook(createdBook);
 
     const response = await request(app).delete(
-      `/authors/${createdAuthor.id}/books/${createdBook.id}`
+      `/authors/${createdAuthor.id}/books/${createdBook.id}`,
     );
 
     expect(response.status).toBe(200);
     expect(response.body.message).toBe(
-      "Book removed from the author successfully"
+      "Book removed from the author successfully",
     );
   });
 
@@ -325,7 +325,7 @@ describe("DELETE /authors/:idAuthor/:idBook", () => {
     });
 
     const response = await request(app).delete(
-      `/authors/${createdAuthor.id}/books/435345`
+      `/authors/${createdAuthor.id}/books/435345`,
     );
 
     expect(response.status).toBe(404);
@@ -350,7 +350,7 @@ describe("DELETE /authors/:idAuthor/:idBook", () => {
     });
 
     const response = await request(app).delete(
-      `/authors/${createdAuthor.id}/books/${createdBook.id}`
+      `/authors/${createdAuthor.id}/books/${createdBook.id}`,
     );
 
     expect(response.status).toBe(400);

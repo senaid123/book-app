@@ -31,7 +31,7 @@ const swaggerDefinition = {
             type: "string",
             description: "Name of the author",
           },
-          lastName:{
+          lastName: {
             type: "string",
             description: "Last name of the author",
           },
@@ -43,7 +43,7 @@ const swaggerDefinition = {
           image: {
             type: "string",
             description: "Author image",
-          }
+          },
         },
         required: ["id", "firstName", "lastName", "dob", "image"],
       },

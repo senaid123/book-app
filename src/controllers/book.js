@@ -122,7 +122,7 @@ export const deleteBook = async (req, res) => {
     return res.status(200).send({ message: "Book successfully deleted" });
   } catch (error) {
     logger.error(error);
-    res.status(500).send({error: "Internal server error"});
+    res.status(500).send({ error: "Internal server error" });
   }
 };
 
@@ -169,7 +169,7 @@ export const addAuthorToBook = async (req, res) => {
         firstName: { [Op.eq]: firstName },
         lastName: { [Op.eq]: lastName },
         dob: cmprDate,
-      }
+      },
     });
 
     if (!author) {
@@ -178,12 +178,14 @@ export const addAuthorToBook = async (req, res) => {
         firstName,
         lastName,
         dob,
-        image 
-      })
+        image,
+      });
 
       await book.addAuthor(newAuthor);
 
-      return res.status(200).send({ message: "Author added to the book successfully" });
+      return res
+        .status(200)
+        .send({ message: "Author added to the book successfully" });
     }
 
     const hasAuthor = await book.hasAuthor(author);
@@ -193,7 +195,6 @@ export const addAuthorToBook = async (req, res) => {
         .status(400)
         .send({ message: "Author is already added to the book" });
     }
-
   } catch (error) {
     logger.error(error);
     res.status(500).send({ error: "Server error" });

@@ -79,7 +79,6 @@ describe("GET /books/:id", () => {
     expect(response.body.book.title).toBe(createdBook.title);
     expect(response.body.book.published).toBe(createdBook.published);
     expect(response.body.book.pages).toBe(createdBook.pages);
-
   });
 
   it("should return 404 if book is not found", async () => {
@@ -104,7 +103,13 @@ describe("PUT /books/:id", () => {
 
     const response = await request(app)
       .put(`/books/${id}`)
-      .send({ title: "NEW BOOK NAME", published: 2023, pages: 222, isbn: "SKSAAAACCCCVV", image: "https://new-image.png" });
+      .send({
+        title: "NEW BOOK NAME",
+        published: 2023,
+        pages: 222,
+        isbn: "SKSAAAACCCCVV",
+        image: "https://new-image.png",
+      });
 
     expect(response.status).toBe(200);
     expect(response.body.message).toBe("Book successfully updated");
@@ -196,7 +201,8 @@ describe("POST /books/:id/authors", () => {
         firstName: "Branko",
         lastName: "Copic",
         dob: new Date("1835-11-30"),
-        image: "https://example.com/images/branko.jpg" })
+        image: "https://example.com/images/branko.jpg",
+      })
       .set("Accept", "application/json");
 
     expect(response.status).toBe(200);
@@ -206,12 +212,12 @@ describe("POST /books/:id/authors", () => {
   it("should return 404 if book not found", async () => {
     const response = await request(app)
       .post(`/books/123123/authors`)
-      .send({ 
+      .send({
         firstName: "Branko",
         lastName: "Copic",
         dob: new Date("1835-11-30"),
-        image: "https://example.com/images/branko.jpg"
-       })
+        image: "https://example.com/images/branko.jpg",
+      })
       .set("Accept", "application/json");
 
     expect(response.status).toBe(404);
@@ -233,7 +239,8 @@ describe("POST /books/:id/authors", () => {
         firstName: "J.K",
         lastName: "Rowling",
         dob: new Date("1835-11-30"),
-        image: "https://example.com/images/mark-twain.jpg" })
+        image: "https://example.com/images/mark-twain.jpg",
+      })
       .set("Accept", "application/json");
 
     expect(response.status).toBe(200);
@@ -261,12 +268,13 @@ describe("POST /books/:id/authors", () => {
 
     const response = await request(app)
       .post(`/books/${createdBook.id}/authors`)
-      .send({   
+      .send({
         id: uuidv4(),
         firstName: "Branko",
         lastName: "Copic",
         dob: new Date("1835-11-30"),
-        image: "https://example.com/images/mark-twain.jpg" })
+        image: "https://example.com/images/mark-twain.jpg",
+      })
       .set("Accept", "application/json");
 
     expect(response.status).toBe(400);

@@ -72,7 +72,7 @@ export const getAuthorById = async (req, res) => {
     res.status(200).send({ author });
   } catch (error) {
     logger.error(error);
-    res.status(500).send({error: "Internal server error"});
+    res.status(500).send({ error: "Internal server error" });
   }
 };
 
@@ -104,7 +104,7 @@ export const updateAuthor = async (req, res) => {
 
     res.status(200).send({ message: "Author successfully updated" });
   } catch (error) {
-    res.status(500).send({error: "Internal server error"});
+    res.status(500).send({ error: "Internal server error" });
   }
 };
 
@@ -124,7 +124,7 @@ export const deleteAuthor = async (req, res) => {
     return res.status(200).send({ message: "Author successfully deleted" });
   } catch (error) {
     logger.error(error);
-    res.status(500).send({error: "Internal server error"});
+    res.status(500).send({ error: "Internal server error" });
   }
 };
 
@@ -143,7 +143,7 @@ export const getBooksForAuthor = async (req, res) => {
     res.status(200).send(author.books);
   } catch (error) {
     logger.error(error);
-    res.status(500).send({error: "Internal server error" });
+    res.status(500).send({ error: "Internal server error" });
   }
 };
 
@@ -191,7 +191,6 @@ export const addBookToAuthor = async (req, res) => {
         .status(400)
         .send({ message: "Book is already added to the author" });
     }
-
   } catch (error) {
     logger.error(error);
     res.status(500).send({ error: "Internal server error" });

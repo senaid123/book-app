@@ -56,7 +56,7 @@ router.get("/authors", getAuthors);
  *         description: Validation error
  *       500:
  *         description: Internal server error
- *          
+ *
  */
 router.post("/authors", validateAuthorForm, createAuthor);
 
