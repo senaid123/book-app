@@ -1,12 +1,12 @@
 import express from "express";
 import {
-  addAuthorToBook,
+  addBookAuthor,
   createBook,
   deleteBook,
-  getAtuhorsForBooks,
+  getBookAtuhors,
   getBookById,
   getBooks,
-  removeAuthorFromBook,
+  removeBookAuthor,
   updateBook,
   validateBookForm,
 } from "../controllers/book.js";
@@ -177,7 +177,7 @@ router.delete("/books/:id", deleteBook);
  *       500:
  *         description: Internal server error
  */
-router.get("/books/:id/authors", getAtuhorsForBooks);
+router.get("/books/:id/authors", getBookAtuhors);
 
 /**
  * @swagger
@@ -226,7 +226,7 @@ router.get("/books/:id/authors", getAtuhorsForBooks);
  *       500:
  *         description: Internal server error
  */
-router.post("/books/:id/authors", validateAuthorForm, addAuthorToBook);
+router.post("/books/:id/authors", validateAuthorForm, addBookAuthor);
 
 /**
  * @swagger
@@ -258,6 +258,6 @@ router.post("/books/:id/authors", validateAuthorForm, addAuthorToBook);
  *       500:
  *         description: Internal server error
  */
-router.delete("/books/:idBook/authors/:idAuthor", removeAuthorFromBook);
+router.delete("/books/:idBook/authors/:idAuthor", removeBookAuthor);
 
 export { router as bookRouter };

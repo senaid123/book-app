@@ -128,7 +128,7 @@ export const deleteAuthor = async (req, res) => {
   }
 };
 
-export const getBooksForAuthor = async (req, res) => {
+export const getAuthorBooks = async (req, res) => {
   const idAuthor = req.params.idAuthor;
 
   try {
@@ -147,7 +147,7 @@ export const getBooksForAuthor = async (req, res) => {
   }
 };
 
-export const addBookToAuthor = async (req, res) => {
+export const addAuthorBook = async (req, res) => {
   const erros = validationResult(req);
 
   if (!erros.isEmpty()) {
@@ -197,7 +197,7 @@ export const addBookToAuthor = async (req, res) => {
   }
 };
 
-export const removeBookFromAuthor = async (req, res) => {
+export const removeAuthorBook = async (req, res) => {
   const { idAuthor, idBook } = req.params;
 
   try {
