@@ -1,0 +1,55 @@
+import "dotenv/config";
+
+export default {
+  development: {
+    username: process.env.DB_DEV_USERNAME,
+    password: process.env.DB_DEV_PASSWORD,
+    database: process.env.DB_DEV_NAME,
+    host: process.env.DB_DEV_HOST,
+    dialect: "mysql",
+    logging: false,
+    charset: "utf8mb4",
+    collate: "utf8mb4_general_ci",
+    pool: {
+      max: 30,
+      min: 0,
+      idle: 20000,
+      evict: 15000,
+      acquire: 60000,
+    },
+  },
+  test: {
+    username: process.env.DB_TEST_USERNAME,
+    password: process.env.DB_TEST_PASSWORD,
+    database: process.env.DB_TEST_NAME,
+    host: process.env.DB_TEST_HOST,
+    dialect: "mysql",
+    logging: false,
+    charset: "utf8mb4",
+    collate: "utf8mb4_general_ci",
+    pool: {
+      max: 30,
+      min: 0,
+      idle: 20000,
+      evict: 15000,
+      acquire: 60000,
+    },
+  },
+  production: {
+    username: process.env.DB_PROD_USERNAME,
+    password: process.env.DB_PROD_PASSWORD,
+    database: process.env.DB_PROD_NAME,
+    host: process.env.DB_PROD_HOST,
+    dialect: "mysql",
+    logging: false,
+    charset: "utf8mb4",
+    collate: "utf8mb4_general_ci",
+    pool: {
+      max: 30,
+      min: 0,
+      idle: 20000,
+      evict: 15000,
+      acquire: 60000,
+    },
+  },
+};
