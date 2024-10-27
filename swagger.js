@@ -13,7 +13,7 @@ const swaggerDefinition = {
       description: "Development server",
     },
     {
-      url: "https://production.api.com",
+      url: "https://book-app-production.up.railway.app",
       description: "Production server",
     },
   ],
