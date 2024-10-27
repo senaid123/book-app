@@ -5,10 +5,10 @@ import { swaggerSpec } from "../swagger.js";
 
 import { bookRouter } from "./routes/book.js";
 import { authorRouter } from "./routes/author.js";
-import sequelize from "./models/index.js";
+import db from "./models/index.js";
 
 if (process.env.NODE_ENV === "production") {
-  sequelize.sync({ alter: true });
+  db.sequelize.sync({ alter: true });
 }
 
 const app = express();
